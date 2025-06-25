@@ -16,4 +16,11 @@ export interface PlaceImageDataType {
   rating: number;
   description: string;
   country: string;
+  temperature: string;
+  time: string;
+}
+
+export interface BottomTabImagesData {
+  imgSrc: ImageSourcePropType;
+  isActive: boolean;
 }

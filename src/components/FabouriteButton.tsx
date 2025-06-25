@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, ToastAndroid, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, ToastAndroid, View, StyleProp, ViewStyle } from 'react-native';
 import React, { useState } from 'react';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -7,7 +7,7 @@ import { BlurView } from '@react-native-community/blur';
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
-export default function FabouriteButton() {
+export default function FabouriteButton({ customStyles }: { customStyles?: StyleProp<ViewStyle> }) {
   const [isfabourite, setIsfabourite] = useState(false);
   const scale = useSharedValue(1);
 
@@ -27,7 +27,7 @@ export default function FabouriteButton() {
   });
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyles]}>
       <AnimatedTouchableOpacity onPress={handleHeartPress} style={[animatedStyle]} activeOpacity={0.7}>
         {isfabourite ? (
           <MaterialCommunityIcons name="cards-heart" size={wp(5.5)} color="red" />

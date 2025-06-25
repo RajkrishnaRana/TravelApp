@@ -9,11 +9,16 @@ import { color } from '../common/color';
 import { font } from '../common/font';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import { navigation } from '../hooks/useNavigation';
 
 export default function ImagePlaces() {
   const renderItem = ({ item }: { item: PlaceImageDataType }) => {
+    const handlePress = () => {
+      navigation.push('Details', { item });
+    };
+
     return (
-      <TouchableOpacity style={styles.imageContainer}>
+      <TouchableOpacity style={styles.imageContainer} activeOpacity={0.7} onPress={handlePress}>
         <Image source={item.imgSrc} style={styles.img} />
         <FabouriteButton />
 

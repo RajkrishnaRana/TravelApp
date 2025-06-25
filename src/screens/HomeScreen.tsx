@@ -16,6 +16,7 @@ export default function HomeScreen() {
       <SearchBar />
       <PopularPlaces />
       <ImagePlaces />
+      <BottomTabOptions />
     </View>
   );
 }
