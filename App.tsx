@@ -5,16 +5,22 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Orientation from 'react-native-orientation-locker';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  useEffect(() => {
+    Orientation.lockToPortrait();
+
+    return () => {
+      Orientation.unlockAllOrientations();
+    };
+  }, []);
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
+      <Text>Open up App.tsx to start working on your app!</Text>
     </View>
   );
 }
