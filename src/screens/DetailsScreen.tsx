@@ -10,11 +10,14 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import OcticonsIcons from 'react-native-vector-icons/Octicons';
 import IconText from '../components/IconText';
 import LinearGradient from 'react-native-linear-gradient';
+import { useSelector } from 'react-redux';
+import { PlaceImageDataType } from '../types';
 
 type DetailsScreenProps = RouteProp<RootStackParamList, 'Details'>;
 
 export default function DetailsScreen() {
-  const { item } = useRoute<DetailsScreenProps>().params;
+  const { id } = useRoute<DetailsScreenProps>().params;
+  const item = useSelector((state: any) => state.places.places.find((place: PlaceImageDataType) => place.id === id));
 
   return (
     <View style={{ flex: 1, backgroundColor: color.white }}>
@@ -22,7 +25,7 @@ export default function DetailsScreen() {
         {/* Image Section */}
         <View>
           <Image source={item.imgSrc} style={styles.img} />
-          <FabouriteButton customStyles={{ right: wp(8) }} />
+          <FabouriteButton customStyles={{ right: wp(8) }} item={item} />
 
           {/* Back Button */}
           <TouchableOpacity style={styles.backButtonContainer} onPress={() => navigation.goBack()}>

@@ -4,12 +4,15 @@ import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-na
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { BlurView } from '@react-native-community/blur';
+import { useDispatch } from 'react-redux';
+import { toggleFavourite } from '../slices/placesSlices';
+import { PlaceImageDataType } from '../types';
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
-export default function FabouriteButton({ customStyles }: { customStyles?: StyleProp<ViewStyle> }) {
-  const [isfabourite, setIsfabourite] = useState(false);
+export default function FabouriteButton({ customStyles, item }: { customStyles?: StyleProp<ViewStyle>; item: PlaceImageDataType }) {
   const scale = useSharedValue(1);
+  const dispatch = useDispatch();
 
   const handleHeartPress = async () => {
     // Bounce animation
@@ -17,7 +20,7 @@ export default function FabouriteButton({ customStyles }: { customStyles?: Style
       scale.value = withSpring(1, { damping: 3, stiffness: 200 });
     });
 
-    setIsfabourite(!isfabourite);
+    dispatch(toggleFavourite(item.id));
   };
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -29,7 +32,7 @@ export default function FabouriteButton({ customStyles }: { customStyles?: Style
   return (
     <View style={[styles.container, customStyles]}>
       <AnimatedTouchableOpacity onPress={handleHeartPress} style={[animatedStyle]} activeOpacity={0.7}>
-        {isfabourite ? (
+        {item?.isFavourite ? (
           <MaterialCommunityIcons name="cards-heart" size={wp(5.5)} color="red" />
         ) : (
           <MaterialCommunityIcons name="cards-heart-outline" size={wp(5.5)} color="white" />

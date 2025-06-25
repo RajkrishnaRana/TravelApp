@@ -4,7 +4,7 @@ import { PlaceImageDataType } from '../types';
 
 export type RootStackParamList = {
   Home: undefined;
-  Details: { item: PlaceImageDataType };
+  Details: { id: number };
 };
 
 export const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();

@@ -10,17 +10,20 @@ import { font } from '../common/font';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import { navigation } from '../hooks/useNavigation';
+import { useSelector } from 'react-redux';
 
 export default function ImagePlaces() {
+  const places = useSelector((state: any) => state.places.places);
+
   const renderItem = ({ item }: { item: PlaceImageDataType }) => {
     const handlePress = () => {
-      navigation.push('Details', { item });
+      navigation.push('Details', { id: item.id });
     };
 
     return (
       <TouchableOpacity style={styles.imageContainer} activeOpacity={0.7} onPress={handlePress}>
         <Image source={item.imgSrc} style={styles.img} />
-        <FabouriteButton />
+        <FabouriteButton item={item} />
 
         <View style={styles.detailsContainer}>
           <Text style={styles.nameText}>
@@ -47,8 +50,9 @@ export default function ImagePlaces() {
   return (
     <View style={{ flex: 1 }}>
       <FlatList
-        data={placeImages}
+        data={places}
         renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
         snapToInterval={wp(65) + wp(6)} // Image width + gap
