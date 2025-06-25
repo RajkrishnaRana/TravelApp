@@ -6,12 +6,24 @@
       "sha1": "518a0361a245a66b49bc24ae0137f38328197bdc"
     },
     {
+      "path": "src/assets/fonts/Inter_18pt-Regular.ttf",
+      "sha1": "bd1976c1f019853ab6143ef1246e25aa66fd990e"
+    },
+    {
       "path": "src/assets/fonts/Lobster-Regular.ttf",
       "sha1": "120c751cd7a77174037c2409ab883ef7efc5edbb"
     },
     {
       "path": "src/assets/fonts/Montserrat-Bold.ttf",
       "sha1": "c7d907722af4fb845ab97d515bb414f29651f000"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "1c8119b38eef1914a4fbd9f6cfdedf198445ab97"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-SemiBold.ttf",
+      "sha1": "d491c9d0af61faef59ca807737b560170f547f5b"
     },
     {
       "path": "src/assets/fonts/Poppins-SemiBold.ttf",
