@@ -11,6 +11,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4479315EA0164A7E8E4AD51D /* Inter_18pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29A151DC92974D5EB50C6AD5 /* Inter_18pt-Bold.ttf */; };
+		40AA2EAEA58147449AEA94EF /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7543DB4E71CF4C50BE754141 /* Lobster-Regular.ttf */; };
+		FFA0F6A5579E4A62BCC3652C /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5067A5B1B4742E2B83E44D1 /* Montserrat-Bold.ttf */; };
+		2AB0E694359A42AC8239A2F8 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3225E23B7E840E49DF5F251 /* Poppins-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,10 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = TravelApp/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TravelApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		29A151DC92974D5EB50C6AD5 /* Inter_18pt-Bold.ttf */ = {isa = PBXFileReference; name = "Inter_18pt-Bold.ttf"; path = "../src/assets/fonts/Inter_18pt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7543DB4E71CF4C50BE754141 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; name = "Lobster-Regular.ttf"; path = "../src/assets/fonts/Lobster-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A5067A5B1B4742E2B83E44D1 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E3225E23B7E840E49DF5F251 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				A894676A8D0545B1A2161C07 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -115,6 +124,18 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		A894676A8D0545B1A2161C07 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				29A151DC92974D5EB50C6AD5 /* Inter_18pt-Bold.ttf */,
+				7543DB4E71CF4C50BE754141 /* Lobster-Regular.ttf */,
+				A5067A5B1B4742E2B83E44D1 /* Montserrat-Bold.ttf */,
+				E3225E23B7E840E49DF5F251 /* Poppins-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -185,6 +206,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4479315EA0164A7E8E4AD51D /* Inter_18pt-Bold.ttf in Resources */,
+				40AA2EAEA58147449AEA94EF /* Lobster-Regular.ttf in Resources */,
+				FFA0F6A5579E4A62BCC3652C /* Montserrat-Bold.ttf in Resources */,
+				2AB0E694359A42AC8239A2F8 /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
