@@ -3,6 +3,7 @@ import React from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import OcticonsIcons from 'react-native-vector-icons/Octicons';
 import { color } from '../common/color';
+import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated';
 
 interface Props {
   title: string | number;
@@ -17,13 +18,13 @@ const iconMap = {
 
 export default function IconText({ title, type }: Props) {
   return (
-    <View style={styles.container}>
+    <Animated.View style={styles.container} entering={FadeInDown.springify()}>
       <View style={styles.imgContainer}>
         <Image source={iconMap[type]} style={styles.img} />
       </View>
 
       <Text style={{ color: color.lightBlack, fontSize: wp(3.5) }}>{title}</Text>
-    </View>
+    </Animated.View>
   );
 }
 

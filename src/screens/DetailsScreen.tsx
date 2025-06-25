@@ -12,6 +12,9 @@ import IconText from '../components/IconText';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSelector } from 'react-redux';
 import { PlaceImageDataType } from '../types';
+import BackButton from '../components/BackButton';
+import { AnimatedTouchableOpacity } from '../components/AnimatedTouchableOpacity';
+import { FadeInDown } from 'react-native-reanimated';
 
 type DetailsScreenProps = RouteProp<RootStackParamList, 'Details'>;
 
@@ -20,17 +23,15 @@ export default function DetailsScreen() {
   const item = useSelector((state: any) => state.places.places.find((place: PlaceImageDataType) => place.id === id));
 
   return (
-    <View style={{ flex: 1, backgroundColor: color.white }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, marginTop: StatusBar.currentHeight, gap: hp(3) }}>
+    <View style={{ flex: 1, backgroundColor: color.white, paddingTop: StatusBar.currentHeight }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1, marginTop: hp(0.5), gap: hp(3) }} showsVerticalScrollIndicator={false}>
         {/* Image Section */}
         <View>
           <Image source={item.imgSrc} style={styles.img} />
           <FabouriteButton customStyles={{ right: wp(8) }} item={item} />
 
           {/* Back Button */}
-          <TouchableOpacity style={styles.backButtonContainer} onPress={() => navigation.goBack()}>
-            <OcticonsIcons name="chevron-left" size={wp(6)} color="white" />
-          </TouchableOpacity>
+          <BackButton />
 
           {/* Details Section */}
           <View style={styles.detailsContainer}>
@@ -71,10 +72,10 @@ export default function DetailsScreen() {
       </ScrollView>
 
       <LinearGradient colors={['rgba(255, 255, 255, 0.5)', color.white, color.white]} style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.bookNowButton} onPress={() => {}} activeOpacity={0.7}>
+        <AnimatedTouchableOpacity style={styles.bookNowButton} onPress={() => {}} activeOpacity={0.7} entering={FadeInDown.springify()}>
           <Text style={styles.bookNowText}>Book Now</Text>
           <Image source={require('../assets/icons/send.png')} style={{ width: wp(4), height: wp(4) }} />
-        </TouchableOpacity>
+        </AnimatedTouchableOpacity>
       </LinearGradient>
     </View>
   );
@@ -138,7 +139,13 @@ const styles = StyleSheet.create({
     paddingTop: hp(8),
     width: '100%',
   },
-  description: { marginHorizontal: wp(5), color: color.grey, fontSize: wp(3.5), fontWeight: '500', lineHeight: hp(2.5), textAlign: 'justify' },
+  description: {
+    marginHorizontal: wp(5),
+    color: color.grey,
+    fontSize: wp(3.5),
+    fontWeight: '500',
+    lineHeight: hp(2.5),
+  },
   bookNowButton: {
     flexDirection: 'row',
     gap: wp(3),

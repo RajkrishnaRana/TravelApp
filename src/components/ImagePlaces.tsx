@@ -1,16 +1,16 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { placeImages } from '../constants';
 import { PlaceImageDataType } from '../types';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import FabouriteButton from './FabouriteButton';
-import { BlurView } from '@react-native-community/blur';
 import { color } from '../common/color';
 import { font } from '../common/font';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import { navigation } from '../hooks/useNavigation';
 import { useSelector } from 'react-redux';
+import { AnimatedTouchableOpacity } from './AnimatedTouchableOpacity';
+import { FadeInDown } from 'react-native-reanimated';
 
 export default function ImagePlaces() {
   const places = useSelector((state: any) => state.places.places);
@@ -21,7 +21,7 @@ export default function ImagePlaces() {
     };
 
     return (
-      <TouchableOpacity style={styles.imageContainer} activeOpacity={0.7} onPress={handlePress}>
+      <AnimatedTouchableOpacity style={styles.imageContainer} activeOpacity={0.7} onPress={handlePress} entering={FadeInDown}>
         <Image source={item.imgSrc} style={styles.img} />
         <FabouriteButton item={item} />
 
@@ -43,7 +43,7 @@ export default function ImagePlaces() {
             </View>
           </View>
         </View>
-      </TouchableOpacity>
+      </AnimatedTouchableOpacity>
     );
   };
 
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     position: 'absolute',
-    bottom: hp(5),
+    bottom: hp(3.5),
     left: wp(2),
     backgroundColor: 'rgba(0, 0, 0, 0.65)',
     paddingHorizontal: wp(4),

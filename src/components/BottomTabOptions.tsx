@@ -7,8 +7,8 @@ import { bottomTabImages } from '../constants';
 export default function BottomTabOptions() {
   return (
     <View style={styles.container}>
-      {bottomTabImages.map((item: BottomTabImagesData) => (
-        <View style={{ alignItems: 'center', gap: hp(1) }}>
+      {bottomTabImages.map((item: BottomTabImagesData, index: number) => (
+        <View key={index} style={{ alignItems: 'center', gap: hp(1) }}>
           <Image source={item.imgSrc} style={styles.img} />
           {item.isActive && <View style={styles.redDot} />}
         </View>

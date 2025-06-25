@@ -1,16 +1,18 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { color } from '../common/color';
+import { font } from '../common/font';
+import { navigation } from '../hooks/useNavigation';
 
 export default function SearchBar() {
   return (
-    <View style={styles.container}>
-      <TextInput placeholder="Search places" placeholderTextColor={color.grey} style={styles.textInput} />
+    <TouchableOpacity style={styles.container} onPress={() => navigation.push('Search')}>
+      <Text style={styles.textInput}>Search places</Text>
 
       <View style={styles.verticalLine} />
       <Image source={require('../assets/icons/sort.png')} style={styles.img} />
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -25,10 +27,11 @@ const styles = StyleSheet.create({
     paddingVertical: wp(4),
   },
   textInput: {
-    color: color.black,
+    color: color.grey,
     padding: 0,
     paddingHorizontal: wp(5),
     width: wp(70),
+    fontFamily: font.InterBold,
   },
   verticalLine: {
     height: '70%',

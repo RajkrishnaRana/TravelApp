@@ -1,14 +1,12 @@
-import { StyleSheet, Text, TouchableOpacity, ToastAndroid, View, StyleProp, ViewStyle } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, ToastAndroid, View, StyleProp, ViewStyle, Vibration } from 'react-native';
 import React, { useState } from 'react';
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { BlurView } from '@react-native-community/blur';
 import { useDispatch } from 'react-redux';
 import { toggleFavourite } from '../slices/placesSlices';
 import { PlaceImageDataType } from '../types';
-
-const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
+import { AnimatedTouchableOpacity } from './AnimatedTouchableOpacity';
 
 export default function FabouriteButton({ customStyles, item }: { customStyles?: StyleProp<ViewStyle>; item: PlaceImageDataType }) {
   const scale = useSharedValue(1);
@@ -20,6 +18,7 @@ export default function FabouriteButton({ customStyles, item }: { customStyles?:
       scale.value = withSpring(1, { damping: 3, stiffness: 200 });
     });
 
+    Vibration.vibrate(20);
     dispatch(toggleFavourite(item.id));
   };
 
